@@ -1,0 +1,18 @@
+services:
+  stable-diffusion-webui:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
+    image: stable-diffusion-webui
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "7860:7860"
+    volumes:
+      - "../models/stable-diffusion:/stable-diffusion-webui/models"
+    command: python3 launch.py --listen --xformers --api
