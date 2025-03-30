@@ -1,2 +1,2 @@
 # docker-stable-diffusion-webui
-Stable-diffusion-webui Dockerfile
+Stable-diffusion-webui docker files
